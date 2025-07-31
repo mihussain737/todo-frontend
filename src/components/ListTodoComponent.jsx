@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { getAllTodos } from '../service/TodoService';
+import { completeTodo, deleteTodoById, getAllTodos,inCompleteTodo } from '../service/TodoService';
 import { useNavigate } from 'react-router-dom';
 
 const ListTodoComponent = () => {
@@ -28,8 +28,29 @@ function updateTodo(id){
      navigate(`/update-todo/${id}`)
 }
 
-function deleteTod(todoId){
-     
+function deleteTodo(todoId){
+     console.log(todoId)
+     deleteTodoById(todoId).then((response)=>{
+          listTodos()
+     }).catch(error=>{
+          console.error(error)
+     })
+}
+
+function markCompleteTodo(todoId){
+     completeTodo(todoId).then((response)=>{
+          listTodos()
+     }).catch(error=>{
+          console.error(error)
+     })
+}
+
+function unmarkCompleteTodo(todoId){
+     inCompleteTodo(todoId).then((response)=>{
+          listTodos()
+     }).catch(error=>{
+          console.error(error)
+     })
 }
 
   return (
@@ -56,7 +77,9 @@ function deleteTod(todoId){
                                         <td>{todo.completed ? 'YES':'NO'}</td>
                                         <td>
                                              <button className='btn btn-info' onClick={()=>updateTodo(todo.id)}>Update</button>
-                                             <button className='btn btn-danger ms-2' onClick={()=>deleteTod(todo.id)}>Delete</button>
+                                             <button className='btn btn-danger ms-2' onClick={()=>deleteTodo(todo.id)}>Delete</button>
+                                             <button className='btn btn-success ms-2' onClick={()=>markCompleteTodo(todo.id)}>Complete</button>
+                                             <button className='btn btn-warning ms-2' onClick={()=>unmarkCompleteTodo(todo.id)}>In-Complete</button>
                                         </td>
                                    </tr>
                               )
