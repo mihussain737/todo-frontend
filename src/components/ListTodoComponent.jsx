@@ -23,18 +23,28 @@ function addNewTodo(){
      navigate('/add-todo')
 }
 
+function updateTodo(id){
+     console.log(id)
+     navigate(`/update-todo/${id}`)
+}
+
+function deleteTod(todoId){
+     
+}
+
   return (
     <div className='container'>
-          <h2 className='text-center'>List of Todos</h2>
+          {/* <h2 className='text-center text-success'>List of Todos</h2> */}
           <br />
           <button className='btn btn-primary mb-2' onClick={addNewTodo}>Add Todo</button>
           <div>
-               <table className='table table-striped table-bordered'>
+               <table className='table table-striped table-bordered table-success'>
                     <thead>
                          <tr>
                               <th>Todo Title</th>
                               <th>Todo Description</th>
                               <th>Todo Completed</th>
+                              <th className='text-center'>Actions</th>
                          </tr>
                     </thead>
                     <tbody>
@@ -44,6 +54,10 @@ function addNewTodo(){
                                         <td>{todo.title}</td>
                                         <td>{todo.description}</td>
                                         <td>{todo.completed ? 'YES':'NO'}</td>
+                                        <td>
+                                             <button className='btn btn-info' onClick={()=>updateTodo(todo.id)}>Update</button>
+                                             <button className='btn btn-danger ms-2' onClick={()=>deleteTod(todo.id)}>Delete</button>
+                                        </td>
                                    </tr>
                               )
                          }

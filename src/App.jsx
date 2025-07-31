@@ -20,6 +20,8 @@ function App() {
 
             {/* //http://localhost:8080/add-todo */}
             <Route path='/add-todo' element={<TodoComponent/>}></Route>
+
+            <Route path='/update-todo/:id' element={<TodoComponent/>}></Route>
         </Routes>
         <FooterComponent/>
       </BrowserRouter>
