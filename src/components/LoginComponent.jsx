@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { loginApiCall, saveLoggedInUser, storeToken } from "./AuthService";
+import { loginApiCall, saveLoggedInUser, storeToken } from "../service/AuthService";
 import { useNavigate } from "react-router-dom";
 const LoginComponent = () => {
   const [username, setUsername] = useState("");

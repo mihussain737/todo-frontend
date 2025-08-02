@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { isUserLoggedIn, logout } from './AuthService'
+import { isUserLoggedIn, logout } from '../service/AuthService'
 import { useNavigate } from 'react-router-dom'
 
 const HeaderComponent = () => {
@@ -16,7 +16,7 @@ const HeaderComponent = () => {
           <header>
                <nav className='navbar navbar-expand-lg navbar-dark bg-success'>
                     <div>
-                     <a className="navbar-brand" href="http://localhost:3000">Todo Application</a>
+                     <a className="navbar-brand">Todo Application</a>
                     </div>
                     <div className='collapse navbar-collapse'>
                       <ul className='navbar-nav'>

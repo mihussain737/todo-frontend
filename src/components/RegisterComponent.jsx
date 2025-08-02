@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { registerAPICall } from './AuthService'
+import { registerAPICall } from '../service/AuthService'
 
 const RegisterComponent = () => {
      const [name,setName]=useState('')

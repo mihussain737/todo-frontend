@@ -6,7 +6,7 @@ import './App.css'
 import TodoComponent from './components/TodoComponent'
 import RegisterComponent from './components/RegisterComponent'
 import LoginComponent from './components/LoginComponent'
-import { isUserLoggedIn } from './components/AuthService'
+import { isUserLoggedIn } from './service/AuthService'
 
 function App() {
 
