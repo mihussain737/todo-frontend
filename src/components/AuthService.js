@@ -28,3 +28,8 @@ export const getLoggedInUser=()=>{
      const username=sessionStorage.getItem("authenticatedUser")
      return username;
 }
+
+export const logout=()=>{
+     localStorage.clear();
+     sessionStorage.clear();
+}
